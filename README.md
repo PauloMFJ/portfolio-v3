@@ -2,6 +2,12 @@
 
 Portfolio of Paulo Ferreira Jorge
 
+## Preview Environments
+
+We use the following environments:
+
+- [main](portfolio-v3-git-main-paulos-projects-d60dfd1c.vercel.app) - Latest production build.
+
 ## Installation
 
 Normalize Node / NPM version (if you haven't got NVM installed, follow instructions [here](https://github.com/nvm-sh/nvm)):
