@@ -1,0 +1,23 @@
+@use "sass:map";
+
+$-breakpoints: (
+	"tablet": 768,
+	"laptop": 1280,
+	"desktop": 1600,
+);
+
+@mixin breakpoint($width: "") {
+	@if map.has-key($-breakpoints, $width) {
+		@media only screen and (min-width: #{map.get($-breakpoints, $width)}px) {
+			@content;
+		}
+	}
+}
+
+@mixin breakpoint-below($width: "") {
+	@if map.has-key($-breakpoints, $width) {
+		@media only screen and (max-width: #{map.get($-breakpoints, $width) - 1}px) {
+			@content;
+		}
+	}
+}

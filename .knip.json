@@ -1,0 +1,4 @@
+{
+	"project": ["src/**/*.ts", "src/**/*.tsx"],
+	"ignoreBinaries": ["npm-check"]
+}

@@ -1,0 +1,108 @@
+@use "sass:math";
+@use "sass:meta";
+
+/// Mixin to apply hover styles only when the device supports hover and
+/// the primary input mechanism is a fine pointer (e.g. mouse). This helps
+/// to avoid hover styles being applied on touch devices
+@mixin hover() {
+	@media (hover: hover) and (pointer: fine) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+/// Mixin to apply styles only when the user hasn't requested a reduced motion
+/// experience. This can be used to apply animations or transitions only when
+/// the user prefers motion
+@mixin prefers-motion() {
+	@media (prefers-reduced-motion: no-preference) {
+		@content;
+	}
+}
+
+/// Mixin to apply styles only when the user has requested a reduced motion
+/// experience. This can be used to apply animations or transitions only when
+/// the user prefers reduced motion
+@mixin prefers-reduced-motion() {
+	@media (prefers-reduced-motion: reduce) {
+		@content;
+	}
+}
+
+/// Mixin to apply styles only when the user is on landscape orientation
+@mixin is-landscape() {
+	@media (orientation: landscape) {
+		@content;
+	}
+}
+
+/// Mixin to apply styles only when the user is on portrait orientation
+@mixin is-portrait() {
+	@media (orientation: portrait) {
+		@content;
+	}
+}
+
+/// Mixin to apply styles only when the pointer is fine (e.g. mouse)
+@mixin is-pointer-fine() {
+	@media (pointer: fine) {
+		@content;
+	}
+}
+
+/// Mixin to apply styles only when the pointer is coarse (e.g. touch)
+@mixin is-pointer-coarse() {
+	@media (pointer: coarse) {
+		@content;
+	}
+}
+
+/// Returns `overflow: clip` with fallback to `overflow: hidden`.
+///
+/// Similar to `hidden`, content is clipped to the element's padding box.
+/// The difference between `clip` and `hidden` is that `clip` is not a
+/// scroll container, and does not start a new formatting context. As such,
+/// where supported `clip` is the more performant and preferred variant.
+@mixin overflow-clip() {
+	overflow: clip;
+
+	@supports not (overflow: clip) {
+		overflow: hidden;
+	}
+}
+
+// Mixin to hide the native scrollbar in all browsers
+@mixin hide-native-scrollbar() {
+	scrollbar-width: none !important;
+	-ms-overflow-style: none !important;
+
+	&::-webkit-scrollbar {
+		display: none;
+		width: 0 !important;
+		height: 0 !important;
+	}
+}
+
+/// Mixin to apply `text-overflow: ellipsis` over a single line
+@mixin show-ellipsis-over-single-line() {
+	@include overflow-clip;
+
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/// Mixin to apply `text-overflow: ellipsis` over multiple lines
+@mixin show-ellipsis-over-multi-line($lines: 2) {
+	@include overflow-clip;
+
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+	@supports (-webkit-line-clamp: $lines) {
+		display: -webkit-box;
+		-webkit-line-clamp: $lines;
+		white-space: initial;
+		-webkit-box-orient: vertical;
+	}
+}

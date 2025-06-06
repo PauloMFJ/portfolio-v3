@@ -1,0 +1,41 @@
+@use "~/styles/includes" as *;
+
+html {
+	// Set default app box-sizing
+	box-sizing: border-box;
+	overflow: hidden auto;
+
+	// Default colors
+	color: $white;
+	background: $black;
+
+	// Smooth fonts
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	margin: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	min-width: 0;
+	min-height: 0;
+}
+
+*:focus {
+	outline: none;
+}
+
+*:focus-visible:focus {
+	outline: 1px dashed currentcolor;
+	outline-offset: var(--outline-offset);
+
+	// Don't show outlines on inputs
+	&:is(input) {
+		outline: none;
+	}
+}

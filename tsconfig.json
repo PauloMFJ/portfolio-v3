@@ -1,0 +1,43 @@
+{
+	// Options largely based on - https://www.totaltypescript.com/tsconfig-cheat-sheet
+	"compilerOptions": {
+		// Base Options
+		"allowJs": true,
+		"esModuleInterop": true,
+		"incremental": false,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"moduleDetection": "force",
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"target": "es2022",
+		"verbatimModuleSyntax": true,
+
+		// Strictness
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"strict": true,
+
+		// TS -> JS Compilation
+		"module": "preserve",
+		"moduleResolution": "bundler",
+		"noEmit": true,
+
+		// For the DOM
+		"lib": ["es2022", "dom", "dom.iterable"],
+
+		// Aliases
+		"baseUrl": "./src",
+		"paths": {
+			"~/public/*": ["../public/*"],
+			"~/*": ["./*"]
+		},
+		"plugins": [{ "name": "next" }]
+	},
+	"include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+	"exclude": ["node_modules", ".next"]
+}

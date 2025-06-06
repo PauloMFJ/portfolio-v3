@@ -1,0 +1,5 @@
+// Base
+$-ease-linear: 0, 0, 1, 1;
+
+// As cubic-bezier's
+$ease-linear: cubic-bezier($-ease-linear);

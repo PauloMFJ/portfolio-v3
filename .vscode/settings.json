@@ -1,0 +1,31 @@
+{
+	// Linting
+	"editor.formatOnPaste": false,
+	"editor.formatOnType": false,
+	"editor.formatOnSave": true,
+	"json.format.enable": false,
+	"scss.validate": false,
+	"stylelint.validate": ["scss"],
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.stylelint": "explicit"
+	},
+
+	// Search
+	"search.exclude": {
+		"package-lock.json": true,
+		".next": true,
+		"node_modules": true
+	},
+
+	"typescript.preferences.autoImportFileExcludePatterns": [
+		//? Don't import from next/router (only expose 'next/navigation')
+		"next/router.d.ts",
+		"next/dist/client/router.d.ts",
+
+		//? Don't import from next/link (only expose 'primative/Link')
+		"next/link.d.ts",
+		"next/dist/client/link.d.ts"
+	]
+}

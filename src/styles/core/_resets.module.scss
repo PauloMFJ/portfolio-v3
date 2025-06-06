@@ -1,0 +1,50 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: unset;
+}
+
+button {
+	padding: unset;
+	font: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	color: inherit;
+	text-transform: inherit;
+	letter-spacing: inherit;
+	background: unset;
+	border: unset;
+}
+
+a {
+	color: inherit;
+	text-decoration: unset;
+	cursor: pointer;
+}
+
+ul,
+ol {
+	padding: unset;
+	margin: unset;
+	list-style: none;
+}
+
+svg {
+	// Avoid cropping issues caused by sub-pixel rendering
+	overflow: unset;
+}
+
+dialog {
+	width: unset;
+	max-width: unset;
+	height: unset;
+	max-height: unset;
+	padding: unset;
+	margin: unset;
+	background: unset;
+	border: unset;
+}
